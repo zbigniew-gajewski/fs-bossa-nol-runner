@@ -55,16 +55,19 @@
   </Choose>
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
-    <None Include="Drivers\IEDriverServer.exe" />
     <Compile Include="AssemblyInfo.fs" />
     <None Include="App.config" />
     <Content Include="packages.config" />
+    <Compile Include="AppArguments.fs" />
     <Compile Include="NolRunner.fs" />
     <None Include="RunNol.fsx" />
     <None Include="runnol.cmd" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Argu">
+      <HintPath>packages\Argu.4.0.0\lib\net40\Argu.dll</HintPath>
+    </Reference>
     <Reference Include="canopy">
       <HintPath>packages\canopy.1.6.1\lib\canopy.dll</HintPath>
     </Reference>
