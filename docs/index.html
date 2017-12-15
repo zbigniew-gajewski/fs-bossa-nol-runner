@@ -5,11 +5,11 @@ title: Nol3 runner
 
 <div class="blurb">
 	<h1>Nol Runner</h1>
-	<h2>Wstęp</h2>
 	<p>Projekt
 		<a href="https://github.com/zbigniew-gajewski/fs-bossa-nol-runner">fs-bossa-nol-runner</a> służy do automatycznego uruchamiania aplikacji
-		<em> <a href="http://bossa.pl/oferta/internet/pomoc/nol/">Notowania Online 3 (Nol 3)</a></em> z poziomu przeglądarki Internet Explorer. 
-		Projekt wykonuje automatycznie sekwencję czynności:
+		<em>
+			<a href="http://bossa.pl/oferta/internet/pomoc/nol/">Notowania Online 3 (Nol 3)</a>
+		</em> z poziomu przeglądarki Internet Explorer. Projekt wykonuje automatycznie sekwencję czynności:
 		<ul>
 			<li>uruchomienie przeglądarki (Internet Explorer 11)</li>
 			<li>zalogowanie się do konta w bossa.pl</li>
@@ -19,14 +19,13 @@ title: Nol3 runner
 	</p>
 	<p>Projekt wykorzystuje:
 		<ul>
-			<li><a href="https://lefthandedgoat.github.io/canopy/">Canopy</a> (F# API do Selenium)</li>
-			<li><a href="http://fsprojects.github.io/Argu/tutorial.html">Argu</a> (F# API do parsowania argumentów).</li>
+			<li>
+				<a href="https://lefthandedgoat.github.io/canopy/">Canopy</a> (F# API do Selenium)</li>
+			<li>
+				<a href="http://fsprojects.github.io/Argu/tutorial.html">Argu</a> (F# API do parsowania argumentów)</li>
 		</ul>
-	</br>
 	</p>
-	</br>
-	<h2>Przygotowanie środowiska</h2>
-	<h3>1. Wymagania</h3>
+	<h3>Wymagania</h3>
 	<p>Aplikacja była przygotowywana i testowana w nastęującym środowisku:</p>
 	<ul>
 		<li>Windows 10 (1703)</li>
@@ -41,15 +40,18 @@ title: Nol3 runner
 	</ul>
 
 	</p>
-	<h3>2. Driver do przeglądarki Internet Explorer</h3>
+	<h3>Driver do przeglądarki</h3>
 	<p>
 		Canopy do działania potrzebuje drivera Selenium:
 		<a href="http://selenium-release.storage.googleapis.com/index.html">IEDriverServer.exe</a>. Po pobraniu i po rozpakowaniu plik
-		<strong>IESeleniumDriver.exe</strong> należy wgrać bezpośrednio na dysk 'C'. Ten projekt był testowany z driverem
+		<strong>IESeleniumDriver.exe</strong> należy wgrać bezpośrednio na dysk 'C'.
+		</br>
+		</br>
+		Ten projekt był testowany z driverem
 		<a href="http://selenium-release.storage.googleapis.com/3.8/IEDriverServer_x64_3.8.0.zip">IEDriverServer_x64_3.8.0.zip</a>. Inne wersje drivera w wersji 3.8 można pobrać z:
 		<a href="http://selenium-release.storage.googleapis.com/index.html?path=3.8/">IEDriverServer_3.8.0</a>.
 	</p>
-	<h3>3. Uprawnienia</h3>
+	<h3>Uprawnienia</h3>
 	<p>
 		Login i hasło do konta w bossa.pl można przekazać do aplikacji na dwa sposoby:
 		<ul>
@@ -68,7 +70,7 @@ title: Nol3 runner
 	<div>
 
 	</div>
-	<h3>4. Uruchomienie</h2>
+	<h3>Uruchomienie</h2>
 		<p>Po skompilowaniu aplikacji, binaria można przegrać do dowolnego katalogu:
 			</br>
 			</br>
@@ -83,7 +85,7 @@ title: Nol3 runner
 			<img src="{{ site.baseurl }}/assets/FsBossaNolRunnerExe.png"></img>
 			</br>
 			Jeśli parametr nie zostanie podany, to login i hasło zostaną pobrane ze zmiennej środowiskowej
-			<strong>bossaCredentials</strong>. Jeśli parametrów nie ma też w zmiennych środowiskowych, aplikacja nie uruchomi przeglądarki
+			<strong>bossaCredentials</strong>. Jeśli parametrów nie ma też w zmiennych środowiskowych, aplikacja nie uruchomi ani przeglądarki
 			ani Nol 3.
 			</br>
 			</br>

@@ -61,6 +61,8 @@
     <Compile Include="AppArguments.fs" />
     <Compile Include="NolRunner.fs" />
     <Compile Include="Program.fs" />
+    <None Include="runnol.cmd" />
+    <None Include="RunNol.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Argu">
