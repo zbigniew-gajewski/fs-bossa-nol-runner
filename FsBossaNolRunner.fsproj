@@ -60,8 +60,6 @@
     <Content Include="packages.config" />
     <Compile Include="AppArguments.fs" />
     <Compile Include="NolRunner.fs" />
-    <None Include="RunNol.fsx" />
-    <None Include="runnol.cmd" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
