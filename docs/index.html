@@ -43,19 +43,31 @@ title: Nol3 runner
 	<h3>Driver do przeglądarki</h3>
 	<p>
 		Canopy do działania potrzebuje drivera Selenium
-		(<a href="http://selenium-release.storage.googleapis.com/index.html">IEDriverServer.exe</a>). Po pobraniu i po rozpakowaniu plik
+		(<a href="http://selenium-release.storage.googleapis.com/index.html">IEDriverServer.exe</a>). 
+		</br>
+		Po pobraniu i po rozpakowaniu plik
 		<strong>IESeleniumDriver.exe</strong> należy wgrać bezpośrednio na dysk 'C'.
 		</br>
+		Projekt był testowany z driverem:
+		<a href="http://selenium-release.storage.googleapis.com/3.8/IEDriverServer_x64_3.8.0.zip">IEDriverServer_x64_3.8.0.zip</a>. 
 		</br>
-		Projekt był testowany z driverem
-		<a href="http://selenium-release.storage.googleapis.com/3.8/IEDriverServer_x64_3.8.0.zip">IEDriverServer_x64_3.8.0.zip</a>. Inne wersje drivera (v. 3.8) można pobrać z:
+		Inne wersje drivera (v. 3.8) można pobrać z:
 		<a href="http://selenium-release.storage.googleapis.com/index.html?path=3.8/">IEDriverServer_3.8.0</a>.
 	</p>
+
+	<h3>Ustawienia przeglądarki</h3>
+	<p>
+		Aby driver Selenium zadziałał dobrze, wszystkie strefy internetowe muszą mieć jednakowe ustawienie 
+		<em>Enable Protected Mode...</em>
+		</br>
+		<img src="{{ site.baseurl }}/assets/BrowserSettings.png"></img>
+	</p>
+
 	<h3>Uprawnienia</h3>
 	<p>
 		Login i hasło do konta w bossa.pl można przekazać do aplikacji na dwa sposoby:
 		<ul>
-			<li>jako parametr '--credentials [login] [hasło]' przy uruchamianiu aplikacji
+			<li>jako parametr <em>'--credentials [login] [hasło]'</em> przy uruchamianiu aplikacji
 				<strong>FsBossaCredentials.exe</strong>
 			</li>
 			<li>umieszczając login i hasło w zmiennej środowiskowej
