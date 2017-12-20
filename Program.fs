@@ -13,12 +13,11 @@ let main argv =
     let arguments = parser.ParseCommandLine argv   
     let username, password = arguments.GetResult(<@ Credentials @>, defaultValue = (String.Empty, String.Empty))
     
-    let credentials = 
-        if String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password) then
-            Option.None
-        else 
-            Option.Some (username, password)
+    let credentialsFromArguments = 
+        if String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password) 
+        then Option.None
+        else Option.Some (username, password)
 
-    runNol credentials
+    runNol credentialsFromArguments
 
     0 // return an integer exit code
