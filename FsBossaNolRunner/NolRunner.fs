@@ -18,20 +18,24 @@ let validateInitialCredentials (optionalCredentials : Credentials Option) =
     | Some credentials -> validateEmptyCredentials credentials
     | None -> Failure "No initial credentials provided!"
 
-let getCredentialsFromEnvironmentVariables (fakeInputCredentials : Credentials Option)  =
+let getVariablesFromEnvironment () = 
+    let bossaCredentials = Environment.GetEnvironmentVariable("bossaCredentials", EnvironmentVariableTarget.User)
+    let username = bossaCredentials.Split(';').[0]
+    let password = bossaCredentials.Substring(username.Length + 1)  // password might contain semicolons
+    username, password
+
+let getCredentialsFromEnvironmentVariables getVariables (fakeInputCredentials : Credentials Option)  =
     // For security reasons keep username and password for your bossa account in environment variable 'bossaCredentials':
     //   Variable: bossaCredentials
     //   Value: user89098;tajneHaslo123 (user name first then password separated by semicolon ';')
     consoleWriteLine "Getting credentials from Environment variables..." ConsoleColor.Blue
-    let bossaCredentials = Environment.GetEnvironmentVariable("bossaCredentials", EnvironmentVariableTarget.User)
-    let username = bossaCredentials.Split(';').[0]
-    let password = bossaCredentials.Substring(username.Length + 1)  // password might contain semicolons
-    validateEmptyCredentials (username, password)
+    let credentialsFromEnvironment = getVariables ()
+    validateEmptyCredentials credentialsFromEnvironment
     
-let validateCredentials = 
+let validateCredentials getVariables = 
     validateInitialCredentials
     ||| 
-    getCredentialsFromEnvironmentVariables
+    (getCredentialsFromEnvironmentVariables getVariables)
 
 let startBrowser (credentials : Credentials) =        
     consoleWriteLine "Starting browser..." ConsoleColor.Blue
@@ -67,7 +71,7 @@ let initNol (credentials : Credentials) =
 let runNol (credentials : Credentials Option) : unit =   
     
     let executionChain =         
-        validateCredentials
+        (validateCredentials getVariablesFromEnvironment)
         >=> tryCatch startBrowser "Error when starting browser!"
         >=> tryCatch login "Error when login to bossa account!"
         >=> tryCatch initNol "Error when initializing Nol 3!"
