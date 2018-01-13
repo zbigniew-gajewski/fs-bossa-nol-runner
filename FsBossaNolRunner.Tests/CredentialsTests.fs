@@ -70,6 +70,28 @@ module Specification =
         let actual = validateInitialCredentials optionalCredentials
         Assert.Equal(expected, actual)
 
+    [<Fact>]
+    let ``empty environment credentials and empty provided user name returns Failure `` () =
+        let optionalCredentials = None
+        let getCredentialsFromEnvironment = fun () -> "","password"
+        let expected = Failure "User Name can't be empty!"
+        let actual = getCredentialsFromEnvironmentVariables getCredentialsFromEnvironment optionalCredentials 
+        Assert.Equal(expected, actual)
 
-  
+    [<Fact>]
+    let ``empty environment credentials and empty provided password returns Failure `` () =
+        let optionalCredentials = None
+        let getCredentialsFromEnvironment = fun () -> "username",""
+        let expected = Failure "Password can't be empty!"
+        let actual = getCredentialsFromEnvironmentVariables getCredentialsFromEnvironment optionalCredentials 
+        Assert.Equal(expected, actual)
+
+    [<Fact>]
+    let ``not empty environment credentials and empty provided user name and password returns Success`` () =
+        let optionalCredentials = None
+        let getCredentialsFromEnvironment = fun () -> "username","password"
+        let expected = Success (getCredentialsFromEnvironment())
+        let actual = getCredentialsFromEnvironmentVariables getCredentialsFromEnvironment optionalCredentials 
+        Assert.Equal(expected, actual)
+   
         
