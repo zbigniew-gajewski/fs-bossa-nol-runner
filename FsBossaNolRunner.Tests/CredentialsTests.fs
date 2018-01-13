@@ -9,31 +9,35 @@ open FsCheck
 open FsCheck.Xunit
 open Types
 open Utils
+open NolRunner
 
 module Specification = 
-    open NolRunner
+    
     
     [<Property>]
-    let ``user name should not be empty``(credentials : Credentials) =
+    let ``FsCheck infrastructure works``(credentials : Credentials) =
         true ==> true
 
     [<Fact>]
     let ``not empty user name and not empty password validation returns Success``() =
         let credentials = ("userName", "password")
-        let result = validateEmptyCredentials credentials
-        Assert.Equal(Success credentials, result)
+        let expected = Success credentials
+        let actual = validateEmptyCredentials credentials
+        Assert.Equal(expected, actual)
 
     [<Fact>]
     let ``empty user name validation returns Failure``() =
         let credentials = ("", "password")
-        let result = validateEmptyCredentials credentials
-        Assert.Equal(Failure "User Name can't be empty!", result)
+        let expected = Failure "User Name can't be empty!"
+        let actual = validateEmptyCredentials credentials
+        Assert.Equal(expected, actual)
 
     [<Fact>]
     let ``empty password validation returns Failure``() =
         let credentials = ("username", "")
-        let result = validateEmptyCredentials credentials
-        Assert.Equal(Failure "Password can't be empty!", result)
+        let expected = Failure "Password can't be empty!"
+        let actual = validateEmptyCredentials credentials
+        Assert.Equal(expected, actual)
 
   
         
