@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2003
+VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsBossaNolRunner", "FsBossaNolRunner.fsproj", "{189DE83A-1CE0-43B7-8E2C-FE7474988CF4}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsBossaNolRunner", "FsBossaNolRunner\FsBossaNolRunner.fsproj", "{189DE83A-1CE0-43B7-8E2C-FE7474988CF4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +20,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D561E939-7C0F-4172-8C98-9E44A32B945C}
+		SolutionGuid = {71AF4972-CA8B-4F78-B781-1CA76AF1B509}
 	EndGlobalSection
 EndGlobal
