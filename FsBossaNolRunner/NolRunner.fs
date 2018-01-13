@@ -3,19 +3,18 @@
 open canopy
 open System
 open System.Threading
+open Types
 open Utils
 
-let validateEmptyCredentials (username, password) = 
-    if String.IsNullOrEmpty(username) then 
-        Failure "User Name can't be empty!"
-    elif String.IsNullOrEmpty(password) 
-        then Failure "Password can't be empty!"
-    else 
-        Success (username, password)  
+let validateEmptyCredentials credentials = 
+    let username, password = credentials
+    if String.IsNullOrEmpty(username) then Failure "User Name can't be empty!"
+    elif String.IsNullOrEmpty(password) then Failure "Password can't be empty!"
+    else Success credentials  
 
-let validateInitialCredentials (credentials : (string * string) Option) =
+let validateInitialCredentials (optionalCredentials : Credentials Option) =
     consoleWriteLine "Validating initial credentials..." ConsoleColor.Blue
-    match credentials with
+    match optionalCredentials with
     | Some (username, password) -> 
         let validatedCredentials = validateEmptyCredentials (username, password)
         match validatedCredentials with
@@ -24,7 +23,7 @@ let validateInitialCredentials (credentials : (string * string) Option) =
     | None -> 
         Failure "No initial credentials provided!"
 
-let getCredentialsFromEnvironmentVariables (fakeInputCredentials : (string * string) Option)  =
+let getCredentialsFromEnvironmentVariables (fakeInputCredentials : Credentials Option)  =
     // For security reasons keep username and password for your bossa account in environment variable 'bossaCredentials':
     //   Variable: bossaCredentials
     //   Value: user89098;tajneHaslo123 (user name first then password separated by semicolon ';')
@@ -39,7 +38,7 @@ let validateCredentials =
     ||| 
     getCredentialsFromEnvironmentVariables
 
-let startBrowser (credentials : string * string) =        
+let startBrowser (credentials : Credentials) =        
     consoleWriteLine "Starting browser..." ConsoleColor.Blue
     start ie // InternetExplorer, not Edge
     pin FullScreen
@@ -47,8 +46,9 @@ let startBrowser (credentials : string * string) =
     consoleWriteLine "Browser started!" ConsoleColor.Green
     credentials
     
-let login  ((username, password) : string*string) =    
+let login  (credentials : Credentials) =    
     consoleWriteLine "Login to bossa.pl starting..." ConsoleColor.Blue
+    let username, password = credentials
     let loginString = 
         String.Format(" var f = document.forms.login; 
             f.LgnUsrNIK.value='{0}'; 
@@ -60,13 +60,16 @@ let login  ((username, password) : string*string) =
     consoleWriteLine "Login to bossa.pl finished!" ConsoleColor.Green
     username, password
 
-let initNol (credentials : string*string) = 
+let initNol (credentials : Credentials) = 
     consoleWriteLine "Initializing Nol 3..." ConsoleColor.Blue
     js @"javascript:parent.initNol();" |> ignore    
     Thread.Sleep(TimeSpan.FromSeconds(5.0))
     credentials
-            
-let runNol (credentials : (string * string) Option) : unit =   
+
+
+// main execution path
+
+let runNol (credentials : Credentials Option) : unit =   
     
     let executionChain =         
         validateCredentials
@@ -85,5 +88,6 @@ let runNol (credentials : (string * string) Option) : unit =
     Console.WriteLine() 
     Console.WriteLine("Press any key to continue...") 
     Console.ReadLine() |> ignore
+    
     quit()
     

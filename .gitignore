@@ -4,5 +4,7 @@
 
 FsBossaNolRunner/obj
 FsBossaNolRunner/bin
+FsBossaNolRunner.Tests/obj
+FsBossaNolRunner.Tests/bin
 /.vs
 /packages

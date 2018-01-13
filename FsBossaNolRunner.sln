@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsBossaNolRunner", "FsBossaNolRunner\FsBossaNolRunner.fsproj", "{189DE83A-1CE0-43B7-8E2C-FE7474988CF4}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FsBossaNolRunner.Tests", "FsBossaNolRunner.Tests\FsBossaNolRunner.Tests.fsproj", "{AAF252CD-5216-4C18-A0E8-07638334A949}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{189DE83A-1CE0-43B7-8E2C-FE7474988CF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{189DE83A-1CE0-43B7-8E2C-FE7474988CF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{189DE83A-1CE0-43B7-8E2C-FE7474988CF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAF252CD-5216-4C18-A0E8-07638334A949}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAF252CD-5216-4C18-A0E8-07638334A949}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAF252CD-5216-4C18-A0E8-07638334A949}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAF252CD-5216-4C18-A0E8-07638334A949}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

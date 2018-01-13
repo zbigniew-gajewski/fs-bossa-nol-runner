@@ -3,10 +3,7 @@
 module Utils
 
 open System
-
-type Result<'TSuccess, 'TFailure> =
-    | Success of 'TSuccess
-    | Failure of 'TFailure
+open Types
 
 let bothMustSucceed addSuccess addFailure switch1 switch2 x = 
     match (switch1 x), (switch2 x) with
