@@ -15,13 +15,8 @@ let validateEmptyCredentials credentials =
 let validateInitialCredentials (optionalCredentials : Credentials Option) =
     consoleWriteLine "Validating initial credentials..." ConsoleColor.Blue
     match optionalCredentials with
-    | Some (username, password) -> 
-        let validatedCredentials = validateEmptyCredentials (username, password)
-        match validatedCredentials with
-        | Success s -> Success s
-        | Failure f -> Failure f
-    | None -> 
-        Failure "No initial credentials provided!"
+    | Some credentials -> validateEmptyCredentials credentials
+    | None -> Failure "No initial credentials provided!"
 
 let getCredentialsFromEnvironmentVariables (fakeInputCredentials : Credentials Option)  =
     // For security reasons keep username and password for your bossa account in environment variable 'bossaCredentials':
