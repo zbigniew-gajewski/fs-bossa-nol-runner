@@ -8,9 +8,9 @@ open Utils
 let validateEmptyCredentials (username, password) = 
     if String.IsNullOrEmpty(username) then 
         Failure "User Name can't be empty!"
-    elif String.IsNullOrEmpty(password) then 
-        Failure "Password can't be empty!"
-    else
+    elif String.IsNullOrEmpty(password) 
+        then Failure "Password can't be empty!"
+    else 
         Success (username, password)  
 
 let validateInitialCredentials (credentials : (string * string) Option) =
@@ -36,7 +36,8 @@ let getCredentialsFromEnvironmentVariables (fakeInputCredentials : (string * str
     
 let validateCredentials = 
     validateInitialCredentials
-    ||| getCredentialsFromEnvironmentVariables
+    ||| 
+    getCredentialsFromEnvironmentVariables
 
 let startBrowser (credentials : string * string) =        
     consoleWriteLine "Starting browser..." ConsoleColor.Blue
@@ -63,13 +64,10 @@ let initNol (credentials : string*string) =
     consoleWriteLine "Initializing Nol 3..." ConsoleColor.Blue
     js @"javascript:parent.initNol();" |> ignore    
     Thread.Sleep(TimeSpan.FromSeconds(5.0))
-    consoleWriteLine "Nol 3 initialization finished!" ConsoleColor.Green
     credentials
             
 let runNol (credentials : (string * string) Option) : unit =   
     
-    Console.WriteLine() 
-
     let executionChain =         
         validateCredentials
         >=> tryCatch startBrowser "Error when starting browser!"

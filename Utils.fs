@@ -69,3 +69,4 @@ let consoleWriteLine (message : string) (color : ConsoleColor) : unit =
     Console.ForegroundColor <- color
     Console.WriteLine message
     Console.ForegroundColor <- oldColor
+    

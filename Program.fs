@@ -15,8 +15,8 @@ let main argv =
     
     let credentialsFromArguments = 
         if String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password) 
-        then Option.None
-        else Option.Some (username, password)
+        then None
+        else Some (username, password)
 
     runNol credentialsFromArguments
 
