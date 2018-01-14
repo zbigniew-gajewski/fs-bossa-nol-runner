@@ -2,10 +2,10 @@
 
 open System
 
-type NolRunnerException =
-    | EmptyUserNameException of ArgumentException 
-    | EmptyPasswordException of ArgumentException 
-    | NoInitialCredentialsException of ArgumentException 
+//type NolRunnerException =
+//    | EmptyUserNameException of ArgumentException 
+//    | EmptyPasswordException of ArgumentException 
+//    | NoInitialCredentialsException of ArgumentException 
 
 type Result<'TSuccess, 'TFailure> =
     | Success of 'TSuccess
