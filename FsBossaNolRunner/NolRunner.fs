@@ -22,7 +22,7 @@ let getVariablesFromEnvironment () =
     let bossaCredentials = Environment.GetEnvironmentVariable("bossaCredentials", EnvironmentVariableTarget.User)
     let username = bossaCredentials.Split(';').[0]
     let password = bossaCredentials.Substring(username.Length + 1)  // password might contain semicolons
-    username, password
+    username, password    
 
 let getCredentialsFromEnvironmentVariables getVariables (fakeInputCredentials : Credentials Option)  =
     // For security reasons keep username and password for your bossa account in environment variable 'bossaCredentials':
@@ -82,7 +82,7 @@ let runNol (credentials : Credentials Option) : unit =
     | Success (username, password) -> 
         consoleWriteLine (String.Format("Nol 3 initialized successfuly for user [{0}]!", username)) ConsoleColor.Green
     | Failure f -> 
-       consoleWriteLine (String.Format("Initializing Nol 3 failed! Message: {0}'", f)) ConsoleColor.Red
+       consoleWriteLine (String.Format("Initializing Nol 3 failed! {0}'", f)) ConsoleColor.Red
     
     Console.WriteLine() 
     Console.WriteLine("Press any key to continue...") 

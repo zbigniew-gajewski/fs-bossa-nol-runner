@@ -3,12 +3,10 @@
 
 namespace FsBossaNolRunner.Tests
 
-open System
 open Xunit
 open FsCheck
 open FsCheck.Xunit
 open Types
-open Utils
 open NolRunner
 
 module Specification = 
