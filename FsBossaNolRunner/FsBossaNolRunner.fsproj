@@ -72,7 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Argu">
-      <HintPath>..\packages\Argu.5.0.1\lib\net45\Argu.dll</HintPath>
+      <HintPath>..\packages\Argu.5.1.0\lib\net45\Argu.dll</HintPath>
     </Reference>
     <Reference Include="canopy">
       <HintPath>..\packages\canopy.1.6.3\lib\canopy.dll</HintPath>
