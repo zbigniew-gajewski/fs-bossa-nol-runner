@@ -8,9 +8,9 @@
 #r @"System.dll"
 #r @"System.Core.dll"
 #r @"System.Core.dll"
-#r @"Argu.4.0.0\lib\net40\Argu.dll"
-#r @"Selenium.WebDriver.3.8.0\lib\net45\WebDriver.dll" // must be just before referencing canopy.dll
-#r @"canopy.1.6.1\lib\canopy.dll"
+#r @"Argu.5.1.0\lib\net45\Argu.dll"
+#r @"Selenium.WebDriver.3.11.1\lib\net45\WebDriver.dll" // must be just before referencing canopy.dll
+#r @"canopy.1.6.3\lib\canopy.dll"
 
 #load "NolRunner.fs"
 
